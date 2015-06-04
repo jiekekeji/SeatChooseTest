@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.ldm.seatchoosetest.model.Seat;
 import com.ldm.seatchoosetest.model.SeatInfo;
+import com.ldm.seatchoosetest.view.OnSeatClickListener;
 import com.ldm.seatchoosetest.view.SSThumView;
 import com.ldm.seatchoosetest.view.SSView;
 
@@ -21,9 +22,9 @@ public class MainActivity extends Activity {
 	private SSView mSSView;
 	/** 缩略图 **/
 	private SSThumView mSSThumView;
-	/** 座位信息集合 **/
+	/** 座位序号集合 **/
 	private ArrayList<SeatInfo> list_seatInfos = new ArrayList<SeatInfo>();
-
+	/** 座位类型，走道或者可选，已被选择 **/
 	private ArrayList<ArrayList<Integer>> list_seat_conditions = new ArrayList<ArrayList<Integer>>();
 
 	@Override
@@ -45,7 +46,8 @@ public class MainActivity extends Activity {
 		mSSView.setOnSeatClickListener(new OnSeatClickListener() {
 
 			@Override
-			public boolean b(int column_num, int row_num, boolean paramBoolean) {
+			public boolean selected(int column_num, int row_num,
+					boolean paramBoolean) {
 				String desc = "您选择了第" + (row_num + 1) + "排" + " 第"
 						+ (column_num + 1) + "列";
 				Toast.makeText(MainActivity.this, desc.toString(),
@@ -54,7 +56,8 @@ public class MainActivity extends Activity {
 			}
 
 			@Override
-			public boolean a(int column_num, int row_num, boolean paramBoolean) {
+			public boolean cancel(int column_num, int row_num,
+					boolean paramBoolean) {
 				String desc = "您取消了第" + (row_num + 1) + "排" + " 第"
 						+ (column_num + 1) + "列";
 				Toast.makeText(MainActivity.this, desc.toString(),
@@ -62,10 +65,6 @@ public class MainActivity extends Activity {
 				return false;
 			}
 
-			@Override
-			public void a() {
-
-			}
 		});
 	}
 

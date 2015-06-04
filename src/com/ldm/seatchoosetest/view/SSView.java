@@ -12,12 +12,10 @@ import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.util.AttributeSet;
 import android.util.FloatMath;
-import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.ldm.seatchoosetest.OnSeatClickListener;
 import com.ldm.seatchoosetest.R;
 import com.ldm.seatchoosetest.model.Seat;
 import com.ldm.seatchoosetest.model.SeatInfo;
